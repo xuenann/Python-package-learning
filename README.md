@@ -9,6 +9,7 @@
 ## 目录
 
 - pandas
+  - [pandas与excel办公自动化](https://www.bilibili.com/video/BV1Ni4y1t7tf)
 - numpy
 - matplotlib
 
