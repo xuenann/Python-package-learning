@@ -494,17 +494,103 @@ df=pd.DataFrame(
 
 
 
+## 数据赋值
+
+### P29赋值
+
+Series
+
+<img src="pandas与excel办公自动化.assets/image-20200526212957216.png" alt="image-20200526212957216" style="zoom:50%;" />
+
+- 直接选择：s[0]=10
+- iloc选择：s.iloc[1]=11
+- loc选择：s.loc['C']=12
+- 创建新一列：s.loc['D']=13
+- 切片查找：s.iloc[1:3]=20
+- 切片索引：s.loc['C':'D']=30
+- 使用条件：s[s>25]=100
+
+DataFrame
+
+<img src="pandas与excel办公自动化.assets/image-20200526213051553.png" alt="image-20200526213051553" style="zoom:50%;" />
+
+- df['A']=100
+- df['B']=df['B']*10
+- df['E']=df['C']+df['D']
+- df.loc[df['E']>10,'E']=200
+- df.loc['Y':'Z','C':'D']=666
 
 
 
+### P30加减乘除
+
+注意：
+
+- 对空值的处理
+
+  <img src="pandas与excel办公自动化.assets/image-20200526213652159.png" alt="image-20200526213652159" style="zoom:50%;" />
+
+  - <img src="pandas与excel办公自动化.assets/image-20200526213746015.png" alt="image-20200526213746015" style="zoom:50%;" />
+
+    一种是将空值替换为0，另一种是使用对应函数。
+
+- 对除数为0的处理
+
+  <img src="pandas与excel办公自动化.assets/image-20200526213928168.png" alt="image-20200526213928168" style="zoom:50%;" />
+
+  ![image-20200526214000875](pandas与excel办公自动化.assets/image-20200526214000875.png)
+
+  ​	将无穷大的值解释为空值！
 
 
 
+### P31、32扩展：Series的index不对齐情况
+
+```
+s1=pd.Series([1,2],index=['a','b'])
+s2=pd.Series([10,20],index=['c','b'])
+
+s1.add(s2,fill_value=0)Out[19]: 
+a     1.0
+b    22.0
+c    10.0
+```
 
 
 
+### P33 计算操作 MultiIndex多层索引
+
+<img src="pandas与excel办公自动化.assets/image-20200526222215069.png" alt="image-20200526222215069" style="zoom:50%;" />
+
+```python
+df[('京东','销量')]+df[('淘宝'，'销量')]
+out： 4
+	  12
+    
+df_total=df['京东']+df['淘宝']
+out：
+	销量	利润
+0	4	  6
+1	12	  13
+
+df_total.columns=pd.MultiIndex.form_product(
+	[
+		['总']
+		df_total.columns
+	])
+out:
+		总
+	销量	利润
+0	4	  6
+1	12	  13
+df.join(df_total)
+```
+
+<img src="pandas与excel办公自动化.assets/image-20200526222825620.png" alt="image-20200526222825620" style="zoom:50%;" />
 
 
+
+### P34
 
 
 
