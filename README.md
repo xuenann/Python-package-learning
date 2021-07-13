@@ -18,13 +18,7 @@
 
 
 
-
-
-
-
-
-
-更新中，，，，，
+#### 这只是初期学习时的笔记，更详细的使用可以看我另一个项目——[数据分析笔记](https://github.com/xuenann/Data-analysis-notes)，这个项目里关于numpy、pandas和matplotlib的使用介绍的更为详细
 
 
 
